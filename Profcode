@@ -1,0 +1,134 @@
+#include<ESP32Servo.h> //needed library for control of servos
+
+//variables (pin out)
+int right = 14;
+int left = 13;
+
+//servo objects
+Servo rServo;
+Servo lServo;
+
+//defining directional constants
+int MovementRight = 1500;
+int MovementLeft = 1300;
+//Below are two examples of forming arrays
+int MovementForward[] = {1700, 1400};
+//initializing an array without populating
+int MovementBackward[] = {1400,1700}; 
+
+//time delay for demo
+int demoTime = 500;
+
+void setup() {
+  // put your setup code here, to run once:
+  startUP();
+
+}
+
+void loop() {
+ 
+  
+  
+  startUP();//reattaching the servos
+ 
+  //trying to stop it. 
+  rServo.writeMicroseconds(1500);
+  lServo.writeMicroseconds(1500);
+  /*
+  Forward();
+
+  delay(demoTime);
+
+  Backward();
+
+  delay(demoTime);
+
+  TurnRight();
+
+  delay(demoTime);
+
+  TurnLeft();
+
+  delay(demoTime);
+
+  hardStop(); //forced stop, by detaching the servo
+  //delay here is if you desire for a pause between loop iterations
+  delay(2000);
+*/
+}
+
+/*
+ * Function: startUP
+ * Input: none
+ * Output: none
+ * Notes: Function just simply attaches the servos to the pins. 
+ */
+void startUP(){
+  rServo.attach(right);
+  lServo.attach(left); 
+}
+
+/*
+ * Function: hardStop
+ * Input: none
+ * Output: none
+ * Notes: Function just simply detaches the servos to the pins. To stop any movement.
+ */
+void hardStop(){
+   rServo.detach();
+  lServo.detach(); 
+}
+
+/*
+ * Function: TurnRight
+ * Input: none
+ * Output : none
+ * Notes: This turns right until told otherwise.
+ */
+
+void TurnRight(){
+  rServo.writeMicroseconds(MovementRight);
+  lServo.writeMicroseconds(MovementRight);
+  
+}
+
+/*
+ * Function: TurnLeft
+ * Input: none
+ * Output : none
+ * Notes: This turns left until told otherwise.
+ */
+
+void TurnLeft(){
+  rServo.writeMicroseconds(MovementLeft);
+  lServo.writeMicroseconds(MovementLeft);
+  
+}
+
+
+/*
+ * Function: Forward
+ * Input: none
+ * Output : none
+ * Notes: This moves forward until told otherwise.
+ */
+
+void Forward(){
+  rServo.writeMicroseconds(MovementForward[1]);
+  lServo.writeMicroseconds(MovementForward[0]);
+  
+}
+
+
+/*
+ * Function: Backward
+ * Input: none
+ * Output : none
+ * Notes: This moves backward until told otherwise.
+ */
+
+void Backward(){
+  rServo.writeMicroseconds(MovementBackward[1]);
+  lServo.writeMicroseconds(MovementBackward[0]);
+  
+}
