@@ -1,0 +1,65 @@
+
+#include <pwmWrite.h>
+
+// Define separate pins for your two servos
+
+Pwm pwm = Pwm();
+
+int rightServoPin = 13;
+int leftServoPin = 14;
+
+void setup() {
+  // put your setup code here, to run once:
+
+  pwm.writeServo(rightServoPin, 1500);
+  pwm.writeServo(leftServoPin, 1500);
+
+  delay(2000);
+
+
+  pwm.writeServo(rightServoPin, 1400);
+  pwm.writeServo(leftServoPin, 1600);
+
+  delay(2000);
+
+  pwm.writeServo(rightServoPin, 1500);
+  pwm.writeServo(leftServoPin, 1500);
+
+
+  delay(5000);
+
+pwm.writeServo(rightServoPin, 1500);
+  pwm.writeServo(leftServoPin, 1500);
+
+
+
+  delay(2000);
+
+  pwm.writeServo(rightServoPin, 1500);
+  pwm.writeServo(leftServoPin, 1500);
+
+  delay(2000);
+
+  pwm.writeServo(rightServoPin, 1400);
+  pwm.writeServo(leftServoPin, 1600);
+
+  delay(2000);
+
+  pwm.writeServo(rightServoPin, 1600);
+  pwm.writeServo(leftServoPin, 1400);
+
+  delay(2000);
+
+  pwm.writeServo(rightServoPin, 1500);
+  pwm.writeServo(leftServoPin, 1500);
+
+  delay(2000);
+
+
+
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+
+}
